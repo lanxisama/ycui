@@ -8,25 +8,52 @@
 		sss
 		<aaa type='danger' round disabled>就这么好看，我一用</aaa>
 		sss
-		<aaa @click='onClick' icon='ditudingwei'>就这么傻逼</aaa>
+		<aaa @click='onClick'>就这么傻逼</aaa>
+
+		<bbb
+		:visible.sync="Visible"
+		>
+			<div slot="head">
+				this is head |这地方是个头
+			</div>
+			<div slot="container">
+				这地方是内容<br/>
+				这地方是内容<br/>
+				这地方是内容<br/>
+				这地方是内容<br/>
+				这地方是内容<br/>
+				<aaa @click='onClick'>就这么傻逼</aaa>
+			</div>
+		</bbb>
+		<br/>
+		<aaa type='primary' round @click="open()">打开对话框</aaa>
 	</div>
 </template>
 
 <script>
 	import aaa from '../packages/button.vue'
+	import bbb from '../packages/dialog/dialog'
 	export default {
 		name: 'App',
 		components: {
-			aaa
+			aaa,
+			bbb
+		},
+		beforeUpdate(){
+			console.log('beforeUpdated---->',this.Visible)
 		},
 		data: function() {
 			return {
-				input: ''
+				input: '',
+				Visible:false
 			}
 		},
 		methods:{
 			onClick(){
 				alert("///")
+			},
+			open(){
+				this.Visible = true;
 			}
 		}
 	}

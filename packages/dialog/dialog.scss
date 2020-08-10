@@ -1,0 +1,17 @@
+@import '../../src/assets/scss/variables';
+
+.modal{
+
+}
+.bottom{
+    border-bottom: 1px solid map-get($colors,'dark');
+}
+.close{
+    cursor: pointer;
+}
+.drawer{
+    position: relative;
+    z-index: 999;
+    border: 1px solid map-get($colors,'dark');
+    box-shadow: 1px 5px 10px map-get($colors,'primary');
+}
