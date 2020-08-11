@@ -1,12 +1,13 @@
 <template>
   <div>
-    <p @click="handlePassword">{{type}}</p>
-    <input
-      class="ycInput"
-      v-bind="$attrs"
-      :type="passwordVisible ? 'text' : 'password'"
-      :class="[`yc-input--${size}`,]"
-    />
+      <input
+        class="ycInput"
+        v-bind="$attrs"
+        :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
+        :class="[`yc-input--${size}`,]"
+      />
+      <p v-if="passwordVisible" @click="handlePassword">{{'隐藏密码'}}</p>
+      <p v-else  @click="handlePassword">{{'显示密码'}}</p>
   </div>
 </template>
 
@@ -14,12 +15,6 @@
 export default {
   name: "ycInput",
   props: {
-    text: {
-      type: String,
-      validator: (val) => {
-        return ["text","password","textarea"].indexOf(val) != -1;
-      },
-    },
     type: {
       type: String,
       default: 'text'
@@ -45,8 +40,7 @@ export default {
   methods:{
     handlePassword () {
       this.passwordVisible = !this.passwordVisible
-      this.type = this.passwordVisible ? 'text' : 'password'
-      console.log(this.passwordVisible)
+      console.log(this.passwordVisible,this.showPassword)
     }
   }
 };

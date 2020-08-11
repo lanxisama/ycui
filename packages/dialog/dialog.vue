@@ -12,7 +12,6 @@
         </div>
          <div class="bottom"></div>
         <slot name="container">
-            
         </slot>
     </div>    
 </template>

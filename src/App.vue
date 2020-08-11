@@ -31,7 +31,9 @@
 		</bbb>
 		<br/>
 		<aaa type='primary' round @click="open()">打开对话框</aaa>
-		<ycInput size='mini' type="text" placeholder='????'></ycInput>
+		<ycInput size='mini' type="text" placeholder='瞎几把输'></ycInput>
+		<ycInput size='small' type="password" placeholder='输入密码'></ycInput>
+<ycInput size='small' showPassword type="password" placeholder='输入密码'></ycInput>
 	</div>
 </template>
 
