@@ -15,6 +15,7 @@
 		padding: 12px 16px;
 		font-size: 14px;
 		border-radius: 4px;
+		box-shadow: 1px 2px 3px map-get($colors,'dark');
 		&:focus,
 		&:hover{
 			opacity: 0.9;
@@ -23,16 +24,19 @@
 
  
 	.yc-color-primary {
+		box-shadow: 1px 2px 3px map-get($colors,'primary');
 		background-color: map-get($colors,'primary');
 		border: 1px solid map-get($colors,'primary-border');
 	}
 
 	.yc-color-danger {
+		box-shadow: 1px 2px 3px map-get($colors,'danger');
 		background-color: map-get($colors,'danger');
 		border: 1px solid map-get($colors,'danger-border');
 	}
 
 	.yc-color-warning {
+		box-shadow: 1px 2px 3px map-get($colors,'warning');
 		background-color: map-get($colors,'warning');
 		border: 1px solid map-get($colors,'warning-border');
 	}

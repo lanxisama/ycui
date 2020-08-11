@@ -4,3 +4,10 @@
   font-weight: normal;  
   font-style: normal;  
 }
+
+@font-face {  
+  font-family: 'Slim';  //重命名字体名
+  src: url('./common/font/Slim-thin-pixelettes.otf');  //引入字体
+  font-weight: normal;  
+  font-style: normal;  
+}

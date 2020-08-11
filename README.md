@@ -27,3 +27,14 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+# 开发计划
++ button
++ radio
++ checkbox
++ input   
+    + text
+    + textarea
+
+

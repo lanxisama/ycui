@@ -1,14 +1,18 @@
 <template>
 	<div id="app">
-		<aaa type='primary' circle>按钮</aaa>
-		ss
+		<aaa type='primary' circle>primary</aaa>
+		<br/>
+		<br/>
 		<aaa type='primary' circle>C</aaa>
-		sss
-		<aaa type='warning'>这个字体为什么别人用</aaa>
-		sss
-		<aaa type='danger' round disabled>就这么好看，我一用</aaa>
-		sss
-		<aaa @click='onClick'>就这么傻逼</aaa>
+		<br/>
+		<br/>
+		<aaa type='warning'>警告</aaa>
+		<br/>
+		<br/>
+		<aaa type='danger' round disabled>危险</aaa>
+		<br/>
+		<br/>
+		<aaa @click='onClick'>1</aaa>
 
 		<bbb
 		:visible.sync="Visible"
@@ -27,17 +31,20 @@
 		</bbb>
 		<br/>
 		<aaa type='primary' round @click="open()">打开对话框</aaa>
+		<ycInput size='mini' type="text" placeholder='????'></ycInput>
 	</div>
 </template>
 
 <script>
 	import aaa from '../packages/button.vue'
 	import bbb from '../packages/dialog/dialog'
+	import ycInput from '../packages/input/input'
 	export default {
 		name: 'App',
 		components: {
 			aaa,
-			bbb
+			bbb,
+			ycInput
 		},
 		beforeUpdate(){
 			console.log('beforeUpdated---->',this.Visible)
