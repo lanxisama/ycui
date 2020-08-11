@@ -1,5 +1,5 @@
 <template>
-    <div class="drawer"
+    <div class="dialog"
     v-if="visible"
     >
         <div class="d-flex">
@@ -44,7 +44,4 @@ export default {
 
 <style lang="scss">
     @import './dialog';
-    .drawer{
-        margin: 50px;
-    }
 </style>

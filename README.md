@@ -30,11 +30,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 # 开发计划
-+ button
++ button   √
 + radio
 + checkbox
-+ input   
-    + text
++ input   √
+    + text √
+    + password √
     + textarea
++ dialog √
 
 
