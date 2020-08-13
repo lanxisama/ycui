@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <aaa type="primary" circle>primary</aaa>
-    <br />
-    <br />
-    <aaa type="primary" circle>C</aaa>
-    <br />
-    <br />
-    <aaa type="warning">警告</aaa>
-    <br />
-    <br />
-    <aaa type="danger" round disabled>危险</aaa>
-    <br />
-    <br />
-    <aaa @click="onClick">1</aaa>
+    <div class="d-flex" style="justify-content: space-around;">
+      <aaa type="primary" circle>primary</aaa>
+
+      <aaa type="primary" circle>C</aaa>
+
+      <aaa type="warning">警告</aaa>
+
+      <aaa type="danger" round disabled>危险</aaa>
+
+      <aaa @click="onClick">1</aaa>
+    </div>
+    <div>
+      <ycInput size="medium" placeholder='medium'></ycInput>
+      <ycInput size="mini" placeholder='mini'></ycInput>
+      <ycInput size="small" showPassword type="password" placeholder="small"></ycInput>
+    </div>
 
     <bbb :visible.sync="Visible">
       <div slot="head">登录</div>
@@ -20,9 +23,12 @@
         账号：
         <ycInput size="small"></ycInput>密码：
         <ycInput size="small" showPassword type="password" placeholder="small"></ycInput>
-        <aaa @click="onClick">登录</aaa>
-        <aaa type="warning" @click="onClick">注册</aaa>
-        <aaa type="primary" round @click="open1()">打开对话框1</aaa>
+        <div  class="d-flex" style="justify-content: space-around;">
+          <aaa @click="onClick">登录</aaa>
+          <aaa type="warning" @click="onClick">注册</aaa>
+          <aaa type="primary" round @click="open1()">打开内部对话框</aaa>
+        </div >
+
       </div>
     </bbb>
 
@@ -30,24 +36,18 @@
       <div slot="head">第二个dialog</div>
       <div slot="container" style="padding:10px;">
         <ycInput type="textarea"></ycInput>
-
+        <ycTree></ycTree>
       </div>
     </bbb>
-
+   <ycTree></ycTree>
     <br />
     <aaa type="primary" round @click="open()">打开对话框</aaa>
 	<br/>
 	<br/>
 	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+  -----
+
+  -----
   </div>
 </template>
 
@@ -55,12 +55,14 @@
 import aaa from "../packages/button.vue";
 import bbb from "../packages/dialog/dialog";
 import ycInput from "../packages/input/input";
+import ycTree from '../packages/tree/tree'
 export default {
   name: "App",
   components: {
     aaa,
     bbb,
     ycInput,
+    ycTree
   },
   beforeUpdate() {
     console.log("beforeUpdated---->", this.Visible);

@@ -38,5 +38,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     + password √
     + textarea
 + dialog √
++ tree
++ drawer
++ range
++ tag
++ icon ! 弄个icon
+
 
 
