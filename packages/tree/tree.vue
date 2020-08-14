@@ -1,58 +1,21 @@
 <template>
-  <div id="treeNode"></div>
+  <div id="treeNode">
+    
+  </div>
 </template>
 <script>
 // import utils from './utils'
 import tree from "./treeNode";
 export default {
   name: "ycTree",
+  props:{
+    treeNode:{
+      type:Array
+    }
+  },
   data() {
     return {
-      treeNode: [
-        {
-          label: "1-1",
-          children: [
-            {
-              label: "1-2",
-            },
-          ],
-        },
-        {
-          label: "2-1",
-          children: [
-            {
-              label: "2-2",
-            },
-            {
-              label: "2-3",
-            },
-            {
-              label: "2-4",
-              children: [
-                {
-                  label: "2-4-1",
-                },
-                {
-                  label: "2-4-1",
-                  children: [
-                    {
-                      label: "2-4-1-1",
-                    },
-                    {
-                      label: "2-4-2",
-                      children: [
-                        {
-                          label: "2-4-2-1",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
+
     };
   },
   methods: {
@@ -84,7 +47,31 @@ export default {
   display: none !important;
   // visibility: hidden;
 }
+
+.yc-tree--fold::before{
+  content:">";
+}
+// 
 .yc-tree--unfold {
   display: inline-block !important;
 }
+.yc-tree:hover{
+    cursor: pointer;
+    // color: #c0c4cc;
+    // transform: rotate(0deg);
+    // transition: transform .3s ease-in-out;
+}
+.yc-tree--close::before{
+  content:"👉"
+}
+.yc-tree--open::before{
+  content:"👇";
+}
+.yc-tree--leaf::before{
+  content:" ";
+}
+.yc-tree:target{
+  background-color:red;
+}
+
 </style>

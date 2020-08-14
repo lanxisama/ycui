@@ -1,6 +1,6 @@
 export default class treeNode {
     constructor(node){
-        this.label = node.label
+        this.label =node.label  
         this.children = node.children
         this.unfold = true; // true --展开 false --折叠
         this.treeNode = this.render()
@@ -16,7 +16,7 @@ export default class treeNode {
         var status = this.unfold?'fold':'unfold'
         this.switchChildren(status)
     }
-
+ 
     close(){
         this.unfold = false;
         this.treeNode.setAttribute('status','fold')
@@ -26,20 +26,24 @@ export default class treeNode {
     switchChildren(status){
         setTimeout(()=>{
             for(let i=0;i<this.treeNode.children.length;i++){
-                this.treeNode.children[i].className =  `yc-tree--${status}`
+                this.treeNode.children[i].className = `yc-tree--leaf yc-tree--${status}`
             }
         },0)
     }
     
     render(){
-        var treenode = document.createElement('div')
+        var treenode = document.createElement('span');
+        treenode.className = 'yc-tree'
         treenode.style = 
-        `   border:1px solid black;
-            width:50%;
+        `   border:none;
+            width:100%;
             display:inline-block;
-            margin:10px;`
+            text-align: left;
+            padding-left:10px;
+            background:white;`
         treenode.innerText = this.label
         treenode.setAttribute('status','unfold')
+
         return treenode
     }
 
@@ -49,13 +53,23 @@ export default class treeNode {
         that.treeNode.addEventListener('click',function(e){
                 e.stopPropagation()
                 unfold = !unfold
-                console.log('状态-->',that.unfold)
                 unfold && that.close()
                 !unfold && that.open()
+                that.switchIcon()
             }/*(that)*/
         ) 
+ 
     }
-    
+    switchIcon(){
+        console.log("||")
+        var status = this.unfold;
+        if(this.children){
+            this.treeNode.className = `yc-tree yc-tree--${status?'close':'open'}`
+        }else{
+            this.treeNode.className = `yc-tree yc-tree-leaf`
+        }
+        console.log('--->',this.treeNode.className)
+    }
     remove(){
         this.treeNode.removeEventListener('click')
     }

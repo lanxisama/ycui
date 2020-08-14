@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    --------------Button--------------
     <div class="d-flex" style="justify-content: space-around;">
       <aaa type="primary" circle>primary</aaa>
 
@@ -11,18 +12,19 @@
 
       <aaa @click="onClick">1</aaa>
     </div>
+    --------------Input--------------
     <div>
       <ycInput size="medium" placeholder='medium'></ycInput>
       <ycInput size="mini" placeholder='mini'></ycInput>
       <ycInput size="small" showPassword type="password" placeholder="small"></ycInput>
     </div>
-
+    --------------Dialog--------------
     <bbb :visible.sync="Visible">
       <div slot="head">登录</div>
       <div slot="container" style="padding:10px;">
         账号：
-        <ycInput size="small"></ycInput>密码：
-        <ycInput size="small" showPassword type="password" placeholder="small"></ycInput>
+        <ycInput></ycInput>密码：
+        <ycInput showPassword type="password" placeholder="small"></ycInput>
         <div  class="d-flex" style="justify-content: space-around;">
           <aaa @click="onClick">登录</aaa>
           <aaa type="warning" @click="onClick">注册</aaa>
@@ -36,18 +38,16 @@
       <div slot="head">第二个dialog</div>
       <div slot="container" style="padding:10px;">
         <ycInput type="textarea"></ycInput>
-        <ycTree></ycTree>
+        <ycTree :treeNode='treeNode'></ycTree>
       </div>
     </bbb>
-   <ycTree></ycTree>
+    <div class="tree">
+     -------------- 树组件--------------
+        <ycTree :treeNode='treeNode'></ycTree>
+    </div>
+
     <br />
     <aaa type="primary" round @click="open()">打开对话框</aaa>
-	<br/>
-	<br/>
-	<br/>
-  -----
-
-  -----
   </div>
 </template>
 
@@ -72,6 +72,51 @@ export default {
       input: "",
       Visible: false,
       Visible1: false,
+      treeNode: [
+        {
+          label: "1-1",
+          children: [
+            {
+              label: "1-2",
+            },
+          ],
+        },
+        {
+          label: "2-1",
+          children: [
+            {
+              label: "2-2",
+            },
+            {
+              label: "2-3",
+            },
+            {
+              label: "2-4",
+              children: [
+                {
+                  label: "2-4-1",
+                },
+                {
+                  label: "2-4-2",
+                  children: [
+                    {
+                      label: "2-4-2-1",
+                    },
+                    {
+                      label: "2-4-2-2",
+                      children: [
+                        {
+                          label: "2-4-2-2-1",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -101,5 +146,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.tree{
+  float: left;
+  width: 20vw;
 }
 </style>

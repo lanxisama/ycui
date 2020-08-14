@@ -12,10 +12,10 @@
 .dialog{
     position: fixed;
     left:25%;
+    margin:20px;
     top: 25vh;
     z-index: 999;
     border: 1px solid map-get($colors,'dark');
-    // box-shadow: 200px map-get($colors,'primary');
     width: 50%;
     box-sizing: border-box;
     border-radius: 2px;
