@@ -33,7 +33,11 @@ export default class treeNode {
     
     render(){
         var treenode = document.createElement('span');
-        treenode.className = 'yc-tree'
+        var icon = this.children?'yc-tree--open':''
+        treenode.className = `yc-tree ${icon}`
+
+        console.log(`节点: ${this.label}  ${this.children} ${treenode.className}`)
+
         treenode.style = 
         `   border:none;
             width:100%;
@@ -61,7 +65,6 @@ export default class treeNode {
  
     }
     switchIcon(){
-        console.log("||")
         var status = this.unfold;
         if(this.children){
             this.treeNode.className = `yc-tree yc-tree--${status?'close':'open'}`
