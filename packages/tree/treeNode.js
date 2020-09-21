@@ -44,7 +44,7 @@ export default class treeNode {
             display:inline-block;
             text-align: left;
             padding-left:10px;
-            background:white;`
+            background: transparent;`
         treenode.innerText = this.label
         treenode.setAttribute('status','unfold')
 

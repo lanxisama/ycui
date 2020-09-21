@@ -1,5 +1,5 @@
 <template>
-  <div id="treeNode">
+  <div id="treeNode" onselectstart="return false;">
     
   </div>
 </template>
@@ -62,10 +62,10 @@ export default {
     // transition: transform .3s ease-in-out;
 }
 .yc-tree--close::before{
-  content:"👉"
+  content:"👉 "
 }
 .yc-tree--open::before{
-  content:"👇";
+  content:"👇 ";
 }
 .yc-tree--leaf::before{
   content:" ";
