@@ -3,10 +3,13 @@
     <div v-if="type!='textarea'">
       <input
         class="ycInput"
+        ref='selectInput'
         v-bind="$attrs"
         :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
         :placeholder="placeholder"
         :class="[`yc-input--${size}`,]"
+        @change='changeValue'
+        @input='changeInput'
       />
       <div v-if="showPassword">
         <p v-if="passwordVisible" @click="handlePassword">{{'隐藏密码'}}</p>
@@ -46,13 +49,26 @@ export default {
   data () {
     return {
       // 显示是否显示密码框
-      passwordVisible: false
+      passwordVisible: false,
+      inputdata:''
     }
+  },
+  watch:{
+
   },
   methods:{
     handlePassword () {
       this.passwordVisible = !this.passwordVisible
       console.log(this.passwordVisible,this.showPassword)
+    },
+    changeInput(e){
+      this.inputdata = e.target.value;
+      console.log(e.target.value)
+      this.$emit('input',e.target.value)
+    },
+    changeValue(e){
+      console.log(e.target.value)
+      this.$emit('change',e.target.value)
     }
   }
 };

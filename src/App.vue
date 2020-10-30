@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <mainc></mainc>
     --------------Button--------------
     <div class="d-flex" style="justify-content: space-around;">
       <aaa type="primary" circle>primary</aaa>
@@ -14,7 +15,9 @@
     </div>
     --------------Input--------------
     <div>
-      <ycInput size="medium" placeholder='medium'></ycInput>
+      -->{{input}}
+      <ycInput v-model="input" size="medium" placeholder='v-modelTest'></ycInput>
+
       <ycInput size="mini" placeholder='mini'></ycInput>
       <ycInput size="small" showPassword type="password" placeholder="small"></ycInput>
     </div>
@@ -56,13 +59,15 @@ import aaa from "../packages/button.vue";
 import bbb from "../packages/dialog/dialog";
 import ycInput from "../packages/input/input";
 import ycTree from '../packages/tree/tree'
+import mainc from '../src/view/parent'
 export default {
   name: "App",
   components: {
     aaa,
     bbb,
     ycInput,
-    ycTree
+    ycTree,
+    mainc
   },
   beforeUpdate() {
     console.log("beforeUpdated---->", this.Visible);
